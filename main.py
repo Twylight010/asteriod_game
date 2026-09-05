@@ -1,12 +1,12 @@
 import sys
 import pygame
-from constants import SCREEN_WIDTH, SCREEN_HEIGHT
-from logger import log_state
+from constants import SCREEN_WIDTH, SCREEN_HEIGHT, BACKGROUND_COLOR
+from logger import log_state, log_event
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
-from logger import log_event
 from shot import Shot
+from starfield import Starfield
 
 
 def main():
@@ -21,6 +21,9 @@ def main():
 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+
+    Starfield.containers = (updatable, drawable)
+    starfield = Starfield()
 
     Player.containers = (updatable, drawable)
 
@@ -58,7 +61,7 @@ def main():
                     shot.kill()
                     asteroid.split()
 
-        screen.fill((0, 0, 0))
+        screen.fill(BACKGROUND_COLOR)
 
         for obj in drawable:
             obj.draw(screen)
