@@ -7,8 +7,6 @@ from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from logger import log_event
 from shot import Shot
-from constants import PLAYER_SHOOT_SPEED, PLAYER_SHOOT_COOLDOWN
-from shot import Shot
 
 
 def main():
